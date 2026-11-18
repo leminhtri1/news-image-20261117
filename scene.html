@@ -15,6 +15,12 @@
   .top .l { color:var(--am); } .top .r { color:var(--muted); }
   h1 { margin:0; text-align:center; font-family:Georgia, serif; font-weight:700; font-size:71px; line-height:80px; letter-spacing:-1.5px; white-space:nowrap; }
   .rule2 { margin:0 16px; border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); height:3px; }
+  .band { display:flex; margin:5px 16px 0; height:21px; }
+  .band span { flex:1; color:#fff; font-size:11.5px; font-weight:800; letter-spacing:1.2px; display:flex; align-items:center; justify-content:center; gap:5px; }
+  .band b { font-size:13px; }
+  .cond { font-family:Bahnschrift, "Arial Narrow", Arial, sans-serif; font-stretch:condensed; font-weight:700; letter-spacing:-.2px; }
+  .datecheck { position:absolute; left:16px; right:16px; bottom:24px; background:#fbe8c8; border-left:5px solid var(--am); padding:3px 8px; font-size:11px; line-height:14px; }
+  .datecheck b { color:var(--am); letter-spacing:1px; }
 
   /* leads */
   .leads { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; padding:8px 16px 0; }
@@ -22,8 +28,8 @@
   .lead .pic svg { width:100%; height:100%; display:block; }
   .kick { font-size:10.5px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; margin-top:5px; display:flex; align-items:center; gap:5px; }
   .num { display:inline-flex; width:16px; height:16px; border-radius:50%; color:#fff; font-size:10px; font-weight:800; align-items:center; justify-content:center; letter-spacing:0; flex:none; }
-  .lead h2 { font-family:Georgia, serif; font-size:21px; line-height:23px; margin:2px 0 2px; }
-  .lead p { margin:0; font-size:12.2px; line-height:15px; color:var(--muted); }
+  .lead h2 { font-family:Bahnschrift, "Arial Narrow", Arial, sans-serif; font-stretch:condensed; font-weight:700; font-size:25px; line-height:25px; margin:2px 0 3px; letter-spacing:-.3px; }
+  .lead p { margin:0; font-size:12px; line-height:14.6px; color:var(--muted); }
 
   /* cards */
   .cards { display:grid; grid-template-columns:repeat(5,1fr); gap:8px 10px; padding:9px 16px 0; }
@@ -32,16 +38,16 @@
   .card .pic svg { width:100%; height:100%; display:block; }
   .card .kick { font-size:9px; letter-spacing:1px; margin-top:3px; }
   .card .num { width:14px; height:14px; font-size:9px; }
-  .card h3 { font-family:Georgia, serif; font-size:14.6px; line-height:16.5px; margin:1px 0 1px; }
+  .card h3 { font-family:Bahnschrift, "Arial Narrow", Arial, sans-serif; font-stretch:condensed; font-weight:700; font-size:17.5px; line-height:18px; margin:1px 0 2px; letter-spacing:-.2px; }
   .card p { margin:0; font-size:10.6px; line-height:12.8px; color:var(--muted); }
 
   /* bottom */
   .bottom { display:grid; grid-template-columns:330px 1fr; gap:14px; padding:8px 16px 0; margin-top:6px; border-top:3px solid var(--ink); margin-left:16px; margin-right:16px; padding-left:0; padding-right:0; }
   .sec { font-size:11px; font-weight:800; letter-spacing:1.6px; color:var(--am); margin:6px 0 4px; }
-  #map { width:330px; height:204px; display:block; background:#dce9f2; border-radius:3px; }
+  #map { width:330px; height:180px; display:block; background:#dce9f2; border-radius:3px; }
   .legend { display:flex; flex-wrap:wrap; gap:3px 9px; font-size:10px; color:var(--muted); margin-top:4px; }
   .legend i { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:3px; }
-  .also { columns:2; column-gap:14px; font-size:11px; line-height:16.4px; }
+  .also { columns:2; column-gap:14px; font-size:10.8px; line-height:14.2px; }
   .also div { break-inside:avoid; border-bottom:1px dotted var(--rule); padding:0 0 0 0; white-space:nowrap; overflow:hidden; text-overflow:clip; }
   .also .num { width:15px; height:13px; border-radius:3px; font-size:8.5px; margin-right:4px; vertical-align:1px; }
   .also b { font-weight:700; }
@@ -50,9 +56,10 @@
 </head>
 <body>
 
-<div class="top"><span class="l">THE WORLD'S NEWS IN ONE PICTURE</span><span class="r">44 STORIES · 6 CONTINENTS · ALL FROM TUESDAY</span></div>
+<div class="top"><span class="l">THE WORLD'S NEWS IN ONE PICTURE</span><span class="r" id="tally"></span></div>
 <h1>Tuesday 17 November 2026</h1>
 <div class="rule2"></div>
+<div class="band" id="band"></div>
 
 <section class="leads">
   <div class="lead">
@@ -69,7 +76,7 @@
       <rect x="8" y="80" width="98" height="17" fill="#16181d" opacity=".85"/><text x="14" y="92" font-size="10.5" font-weight="800" fill="#fff" letter-spacing="1">KERCH STRAIT</text>
     </svg></div>
     <div class="kick" style="color:var(--eu)"><span class="num" style="background:var(--eu)">1</span>Europe · Ukraine war</div>
-    <h2>Ukraine strikes the Crimean Bridge; a section falls into the sea</h2>
+    <h2>Ukraine hits the Crimean Bridge again; a section falls into the sea</h2>
     <p>Zelensky hails an "unprecedented operation"; the Kremlin vows to rebuild. Russia says it downed 2,049 drones in 24 hours.</p>
   </div>
   <div class="lead">
@@ -90,7 +97,7 @@
       <rect x="8" y="38" width="112" height="15" fill="#c2362f"/><text x="14" y="49" font-size="9.5" font-weight="800" fill="#fff" letter-spacing=".5">DRONES INTERCEPTED</text>
     </svg></div>
     <div class="kick" style="color:var(--me)"><span class="num" style="background:var(--me)">2</span>Middle East · Iran war</div>
-    <h2>Iran fires drones at a US radar in Bahrain; US hits Qeshm</h2>
+    <h2>Iran fires drones at a US radar in Bahrain; US jets strike Qeshm</h2>
     <p>Bahrain and Kuwait intercept drones. Ships hit in and near Hormuz: Oman evacuates 24 crew from a struck gas tanker.</p>
   </div>
   <div class="lead">
@@ -105,7 +112,7 @@
       <g font-size="8.5" font-weight="800" fill="#16181d" text-anchor="middle"><text x="58" y="98">US</text><text x="128" y="98">INDIA</text><text x="198" y="98">JAPAN</text><text x="268" y="98">AUSTRALIA</text></g>
     </svg></div>
     <div class="kick" style="color:var(--as)"><span class="num" style="background:var(--as)">3</span>Asia · Diplomacy</div>
-    <h2>Trump in Manila for the first Quad summit in two years</h2>
+    <h2>Trump in Manila for the first Quad leaders' summit in two years</h2>
     <p>Leaders unveil critical-minerals deals. Putin meets Xi in Shenzhen ahead of Thursday's three-way talks with Trump.</p>
   </div>
 </section>
@@ -115,7 +122,7 @@
 <section class="bottom">
   <div>
     <div class="sec">WHERE IT HAPPENED</div>
-    <svg id="map" viewBox="0 0 330 204"></svg>
+    <svg id="map" viewBox="0 0 330 180"></svg>
     <div class="legend" id="legend"></div>
   </div>
   <div>
@@ -124,6 +131,7 @@
   </div>
 </section>
 
+<div class="datecheck"><b>DATE CHECK</b> · Left out because they came before 17 Nov: DR Congo's Ebola count passing 11,000 (11 Nov) · the US nationwide flight ground stop (13 Nov) · Thaçi's war-crimes verdict (16 Sep; only today's obstruction ruling is shown).</div>
 <footer><span>Every story happened or was first reported on Tuesday 17 November 2026. Claims by warring sides are attributed.</span><span>Sources: Reuters, AP, AFP, BBC, Anadolu, Al Jazeera, WHO. Original drawings.</span></footer>
 
 <script>
@@ -161,6 +169,9 @@ const P = {
   tv: `<rect width="200" height="58" fill="#f3e9ee"/><rect x="62" y="6" width="76" height="44" rx="4" fill="#16181d"/><rect x="68" y="12" width="64" height="32" fill="#5b6270"/>
          <text x="100" y="32" font-size="10" font-weight="800" fill="#fff" text-anchor="middle">OFF AIR</text><circle cx="146" cy="14" r="9" fill="#c2362f"/><path d="M141 9l10 10M151 9l-10 10" stroke="#fff" stroke-width="2.5"/>
          <path d="M86 50 l-6 7 M114 50 l6 7" stroke="#16181d" stroke-width="3"/><text x="10" y="30" font-size="10" font-weight="800" fill="#8e2b52">SÖZCÜ</text>`,
+  measles: `<rect width="200" height="58" fill="#f6e6e6"/><g transform="translate(10 12)"><rect width="46" height="30" fill="#fff" stroke="#bbb"/><g fill="#b22234"><rect width="46" height="4"/><rect y="9" width="46" height="4"/><rect y="18" width="46" height="4"/><rect y="26" width="46" height="4"/></g><rect width="20" height="15" fill="#3c3b6e"/></g>
+         <g transform="translate(92 29)"><circle r="13" fill="#c2362f"/><g stroke="#c2362f" stroke-width="3"><path d="M0 -13v-6M0 13v6M-13 0h-6M13 0h6M9 -9l4 -4M-9 9l-4 4M9 9l4 4M-9 -9l-4 -4"/></g><circle cx="-4" cy="-3" r="3" fill="#f6c0c0"/><circle cx="5" cy="4" r="2.5" fill="#f6c0c0"/></g>
+         <rect x="122" y="16" width="72" height="26" fill="#fff" stroke="#c2362f" stroke-width="2" transform="rotate(-6 158 29)"/><text x="158" y="27" font-size="8" font-weight="800" fill="#c2362f" text-anchor="middle" transform="rotate(-6 158 29)">MEASLES-FREE</text><text x="158" y="37" font-size="8" font-weight="800" fill="#c2362f" text-anchor="middle" transform="rotate(-6 158 29)">STATUS LOST</text>`,
   ebola: `<rect width="200" height="58" fill="#f5efe0"/><g transform="translate(12 12)"><rect width="42" height="30" fill="#007fff"/><path d="M0 30 L42 0" stroke="#f7d618" stroke-width="9"/><path d="M0 30 L42 0" stroke="#ce1021" stroke-width="5"/><path d="M8 3 l2 5 l5 0 l-4 3 l2 5 l-5 -3 l-4 3 l1 -5 l-4 -3 l5 0z" fill="#f7d618"/></g>
          <g fill="#b8860b"><rect x="76" y="40" width="14" height="12"/><rect x="96" y="32" width="14" height="20"/><rect x="116" y="22" width="14" height="30"/><rect x="136" y="10" width="14" height="42"/></g>
          <text x="156" y="22" font-size="11" font-weight="800" fill="#c2362f">11,254</text><text x="156" y="34" font-size="8" font-weight="700" fill="#16181d">CASES</text><text x="156" y="48" font-size="11" font-weight="800" fill="#16181d">5,505</text><text x="156" y="56" font-size="7" font-weight="700" fill="#16181d">DEATHS</text>`,
@@ -176,7 +187,7 @@ const cards = [
   [10,'me','Middle East · Israel','knesset','Opposition wins Knesset speaker vote','Eisenkot ally Matan Kahana elected, ousting Likud\'s Amir Ohana.'],
   [11,'af','Africa · Justice','court',"Mozambique tries opposition's Mondlane",'His trial on five charges opens at the Supreme Court in Maputo.'],
   [12,'me','Turkey · Press','tv','Turkey seizes Sözcü TV','Police raid the opposition channel; a trustee is named, 4 bosses held.'],
-  [13,'af','Africa · Health','ebola','Ebola spreads at record pace','DR Congo: 11,254 cases and 5,505 deaths in six months, Reuters finds.'],
+  [13,'am','Americas · Health','measles','US loses measles-free status after 26 years','PAHO confirms a year of unbroken spread; at least 10 US deaths this year.'],
 ];
 document.getElementById('cards').innerHTML = cards.map(([n,r,k,p,h,d]) => `
   <div class="card"><div class="pic"><svg viewBox="0 0 200 58" preserveAspectRatio="xMidYMid slice">${P[p]}</svg></div>
@@ -229,12 +240,14 @@ const also = [
   [42,'me','COP31','Antalya: climate-finance agenda "blocked", expert says',[30.7,36.9]],
   [43,'gl','Space','Voyager 1 reaches one light-day from Earth',null],
   [44,'eu','Football','Spain: Mbappé abuser gets suspended sentence',[-5.8,43.4]],
+  [45,'oc','Cook Islands','Cyclone Xavier strengthens; Manihiki on alert',[-161,-10.4]],
+  [46,'af','Guinea','court sentences 202 illegal gold miners, 22 officials',[-13.7,9.5]],
 ];
 document.getElementById('also').innerHTML = also.map(([n,r,pl,t]) =>
   `<div><span class="num" style="background:${C[r]}">${n}</span><b>${pl}:</b> ${t}</div>`).join('');
 
 // world map: equirectangular, lon -170..180, lat -50..80, coarse continent outlines drawn by hand
-const W = 330, H = 204, lon0 = -170, lon1 = 180, lat0 = 80, lat1 = -52;
+const W = 330, H = 180, lon0 = -170, lon1 = 180, lat0 = 80, lat1 = -52;
 const X = lo => (lo - lon0) / (lon1 - lon0) * W, Y = la => (lat0 - la) / (lat0 - lat1) * H;
 const land = [
   [[-168,66],[-160,71],[-140,70],[-120,72],[-95,72],[-80,73],[-62,66],[-55,52],[-66,45],[-76,35],[-81,25],[-97,26],[-97,19],[-88,15],[-83,9],[-78,8],[-92,15],[-105,20],[-112,30],[-118,34],[-124,40],[-124,48],[-135,58],[-150,60],[-165,62]],
@@ -253,12 +266,18 @@ const land = [
 let m = land.map(p => `<path d="M${p.map(([a,b]) => X(a).toFixed(1)+' '+Y(b).toFixed(1)).join('L')}Z" fill="#efe3c8" stroke="#c9b893" stroke-width=".6"/>`).join('');
 for (const [n,r,,,ll] of also) if (ll) m += `<circle cx="${X(ll[0]).toFixed(1)}" cy="${Y(ll[1]).toFixed(1)}" r="2.3" fill="${C[r]}" stroke="#fff" stroke-width=".5"/>`;
 const pins = [[1,'eu',[36.5,45.3]],[2,'me',[50.6,26.1]],[3,'as',[121,14.6]],[4,'am',[-122,37.4]],[5,'am',[-150,62]],[6,'eu',[86,55.3]],
-              [7,'eu',[14.4,50.1]],[8,'as',[106.9,47.9]],[9,'eu',[20.5,44.8]],[10,'me',[35.2,31.8]],[11,'af',[32.6,-25.9]],[12,'me',[29,41]],[13,'af',[25,-2]]];
+              [7,'eu',[14.4,50.1]],[8,'as',[106.9,47.9]],[9,'eu',[20.5,44.8]],[10,'me',[35.2,31.8]],[11,'af',[32.6,-25.9]],[12,'me',[29,41]],[13,'am',[-98,39]]];
 for (const [n,r,[lo,la]] of pins) m += `<g><circle cx="${X(lo).toFixed(1)}" cy="${Y(la).toFixed(1)}" r="6" fill="${C[r]}" stroke="#fff" stroke-width="1"/><text x="${X(lo).toFixed(1)}" y="${(Y(la)+2.6).toFixed(1)}" font-size="7" font-weight="800" fill="#fff" text-anchor="middle" font-family="Segoe UI, Arial">${n}</text></g>`;
 document.getElementById('map').innerHTML = m;
 
+// region band and tally, counted from every story on the page (leads 1-3 included)
+const leadRegions = ['eu','me','as'], all = [...leadRegions, ...cards.map(c => c[1]), ...also.map(a => a[1])];
+const names = [['eu','EUROPE'],['me','MIDDLE EAST'],['as','ASIA'],['af','AFRICA'],['am','AMERICAS'],['oc','OCEANIA'],['gl','SPACE']];
+document.getElementById('band').innerHTML = names.map(([k,l]) => `<span style="background:${C[k]}">${l} <b>${all.filter(r => r === k).length}</b></span>`).join('');
+document.getElementById('tally').textContent = `${all.length} STORIES · 6 CONTINENTS · ALL FROM THIS ONE DAY`;
+
 document.getElementById('legend').innerHTML = [['eu','Europe'],['me','Middle East'],['as','Asia'],['af','Africa'],['am','Americas'],['oc','Oceania'],['gl','Space']]
-  .map(([k,l]) => `<span><i style="background:${C[k]}"></i>${l}</span>`).join('') + '<span>Pins: stories 1–13 · dots: 14–44</span>';
+  .map(([k,l]) => `<span><i style="background:${C[k]}"></i>${l}</span>`).join('') + '<span>Pins: stories 1–13 · dots: 14–46</span>';
 </script>
 </body>
 </html>
